@@ -1,5 +1,5 @@
 
-(function() {
+// (function() {
   angular.module('app', ['app.converter','ui.bootstrap']);
 
   angular.module('app')
@@ -83,4 +83,4 @@
     }
   }
 
-})();
+// })();

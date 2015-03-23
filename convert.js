@@ -1,4 +1,4 @@
-(function() {
+// (function() {
   angular.module('app.converter', [])
     .factory('Converter', Converter);
 
@@ -63,4 +63,4 @@
     }
 
   }
-})();
+// })();
