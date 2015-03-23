@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html>
+<div class="container">
 
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <div ng-include="'components/navbar/navbar.html'"></div> -->
 
-    <link href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
-    
-  </head>
-
-  <body ng-app="app">
-    <br />
-    <div class="container" ng-controller="ConverterCtrl as vm">
+  <div class="container" ng-controller="ConverterCtrl as vm">
       <div ng-keydown="vm.pressedButton($event)" class="jumbotron form-group col-md-5 col-md-offset-4">
         <!-- <span class="glyphicon glyphicon-question-sign" ng-click="vm.openHelp('lg')"></span> -->
         <div class="text-center">
@@ -37,16 +29,10 @@
       </div>
     </div>
 
-    
-    <script src="vendor/jquery-1.11.2.min.js"></script>
-    <script src="vendor/angular.min.js"></script>
-    <script src="vendor/ui-bootstrap-tpls-0.12.1.min.js"></script>
+  <hr>
 
+  <div class="footer">
+    <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
+  </div>
 
-    <script src="vendor/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
-    <script src="convert.js"></script>
-    
-  </body>
-
-</html>
+</div>
