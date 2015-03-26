@@ -1,4 +1,3 @@
-(function() {
   angular.module('app.converter', [])
     .factory('Converter', Converter);
 
@@ -22,45 +21,55 @@
     return _public;
 
 
-    function convertBase(num) {
-      this.from = function(baseFrom) {
-        this.to = function(baseTo) {
-          return parseInt(num, baseFrom).toString(baseTo);
-        };
-        return this;
-      };
-      return this;
+
+    //function convertBase(num) {
+    //  this.from = function(baseFrom) {
+    //    this.to = function(baseTo) {
+    //      return parseInt(num, baseFrom).toString(baseTo);
+    //    };
+    //    return this;
+    //  };
+    //  return this;
+    //}
+
+    function convertBaseFromTo(num,baseFrom,baseTo) {
+      return parseInt(num, baseFrom).toString(baseTo);
     }
 
     // binary to decimal
     function bin2dec(num) {
-      return convertBase(num).from(2).to(10);
+      //return convertBase(num).from(2).to(10);
+      return convertBaseFromTo(num,2,10);
     }
 
     // binary to hexadecimal
     function bin2hex(num) {
-      return convertBase(num).from(2).to(16);
+      //return convertBase(num).from(2).to(16);
+      return convertBaseFromTo(num,2,16);
     }
 
     // decimal to binary
     function dec2bin(num) {
-      return convertBase(num).from(10).to(2);
+      //return convertBase(num).from(10).to(2);
+      return convertBaseFromTo(num,10,2);
     }
 
     // decimal to hexadecimal
     function dec2hex(num) {
-      return convertBase(num).from(10).to(16);
+      //return convertBase(num).from(10).to(16);
+      return convertBaseFromTo(num,10,16);
     }
 
     // hexadecimal to binary
     function hex2bin(num) {
-      return convertBase(num).from(16).to(2);
+      //return convertBase(num).from(16).to(2);
+      return convertBaseFromTo(num,16,2);
     }
 
     // hexadecimal to decimal
     function hex2dec(num) {
-      return convertBase(num).from(16).to(10);
+      //return convertBase(num).from(16).to(10);
+      return convertBaseFromTo(num,16,10);
     }
 
   }
-})();
