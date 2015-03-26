@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div class="container">
+    <div ng-keydown="vm.pressedButton($event)" class="jumbotron form-group col-md-5 col-md-offset-4">
+      <!-- <span class="glyphicon glyphicon-question-sign" ng-click="vm.openHelp('lg')"></span> -->
+      <div class="text-center">
+        <h3>Binary to X converter</h3>
+        <p>Almog is my No1 user!!!</p>
+        <div>
+          <div>Dec</div>
+          <input autofocus="" style="max-width=100px; " class="form-control input-lg" ng-model="vm.decNum " ng-type="number " ng-change="vm.decChanged(vm.decNum) " />
+        </div>
+        <div>
+          <div>binary</div>
+          <input class="form-control input-lg " ng-model="vm.binNum " ng-change="vm.binChanged(vm.binNum) " />
+        </div>
+        <div>
+          <div>Hex</div>
+          <input class="form-control input-lg " ng-model="vm.hexNum" ng-change="vm.hexChanged(vm.hexNum) " />
+        </div>
+        <br />
+        <a class="btn btn-primary btn-lg " href="# " ng-click="(vm.addNum(-1)); ">-</a>
+        <a class="btn btn-primary btn-lg " href="# " ng-click="(vm.resetTo(0)); ">Reset</a>
+        <a class="btn btn-primary btn-lg " href="# " ng-click="(vm.addNum(1)); ">+</a>
+        <!-- <div ng-bind="vm.debuger"></div> -->
+      </div>
+    </div>
+  </div>
+</div>
