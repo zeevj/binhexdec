@@ -1,89 +1,71 @@
 'use strict';
 
-class MainCtrl {
-  constructor ($scope)
-  {
-
-  }
-
-  var vm = this;
-  //public
-  vm.decNum;
-  vm.binNum;
-  vm.hexNum;
-  vm.debuger = 'hi';
-
-  vm.decChanged = decChanged;
-  vm.binChanged = binChanged;
-  vm.hexChanged = hexChanged;
-  vm.resetTo = resetTo;
-  vm.addNum = addNum;
-  vm.pressedButton = pressedButton;
-  vm.openHelp = openHelp;
-
-
-
-  //init
-  vm.resetTo(200);
-
-
-  //functions
-  function decChanged(_newVal) {
-    vm.binNum = Converter.dec2bin(_newVal.toString());
-    vm.hexNum = Converter.dec2hex(_newVal.toString()).toUpperCase();
-  }
-
-  function binChanged(_newVal) {
-    console.log(_newVal);
-    vm.decNum = Converter.bin2dec(_newVal.toString());
-    vm.hexNum = Converter.bin2hex(_newVal.toString()).toUpperCase();
-  }
-
-  function hexChanged(_newVal) {
-    console.log(_newVal);
-    vm.decNum = Converter.hex2dec(_newVal.toString());
-    vm.binNum = Converter.hex2bin(_newVal.toString());
-    vm.hexNum = vm.hexNum.toUpperCase()
-  }
-
-  function resetTo(_num) {
-    vm.decNum = _num;
-    vm.binNum = Converter.dec2bin(vm.decNum.toString());
-    vm.hexNum = Converter.dec2hex(vm.decNum.toString()).toUpperCase();
-  }
-
-  function addNum(_num) {
-    if (isNaN(parseInt(vm.decNum))){
-      vm.decNum = 0;
-    }
-    vm.decNum = parseInt(vm.decNum) + _num;
-    vm.binNum = Converter.dec2bin(vm.decNum.toString());
-    vm.hexNum = Converter.dec2hex(vm.decNum.toString()).toUpperCase();
-  }
-
-  function pressedButton($event){
-    console.log($event);
-    //vm.debuger = Date.now();
-    vm.debuger = $event.keyCode;
-    if($event.keyCode === 38){
-      addNum(1);
-    }
-    if($event.keyCode === 40){
-      addNum(-1);
-    }
-    if($event.keyCode === 82 && $event.ctrlKey === true){
-      resetTo(0);
-    }
-    //$event.preventDefault();
-  }
-
-  function openHelp(size)
-  {
-
-
-  }
-}
-
-MainCtrl.$inject = ['$scope', 'Converter'];
-
-export default MainCtrl;
+angular.module('binhexdec')
+  .controller('MainCtrl', function ($scope) {
+    $scope.awesomeThings = [
+      {
+        'title': 'AngularJS',
+        'url': 'https://angularjs.org/',
+        'description': 'HTML enhanced for web apps!',
+        'logo': 'angular.png'
+      },
+      {
+        'title': 'BrowserSync',
+        'url': 'http://browsersync.io/',
+        'description': 'Time-saving synchronised browser testing.',
+        'logo': 'browsersync.png'
+      },
+      {
+        'title': 'GulpJS',
+        'url': 'http://gulpjs.com/',
+        'description': 'The streaming build system.',
+        'logo': 'gulp.png'
+      },
+      {
+        'title': 'Jasmine',
+        'url': 'http://jasmine.github.io/',
+        'description': 'Behavior-Driven JavaScript.',
+        'logo': 'jasmine.png'
+      },
+      {
+        'title': 'Karma',
+        'url': 'http://karma-runner.github.io/',
+        'description': 'Spectacular Test Runner for JavaScript.',
+        'logo': 'karma.png'
+      },
+      {
+        'title': 'Protractor',
+        'url': 'https://github.com/angular/protractor',
+        'description': 'End to end test framework for AngularJS applications built on top of WebDriverJS.',
+        'logo': 'protractor.png'
+      },
+      {
+        'title': 'Bootstrap',
+        'url': 'http://getbootstrap.com/',
+        'description': 'Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.',
+        'logo': 'bootstrap.png'
+      },
+      {
+        'title': 'Angular UI Bootstrap',
+        'url': 'http://angular-ui.github.io/bootstrap/',
+        'description': 'Bootstrap components written in pure AngularJS by the AngularUI Team.',
+        'logo': 'ui-bootstrap.png'
+      },
+      {
+        'title': 'Sass (Node)',
+        'url': 'https://github.com/sass/node-sass',
+        'description': 'Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass.',
+        'logo': 'node-sass.png'
+      },
+      {
+        'key': 'jade',
+        'title': 'Jade',
+        'url': 'http://jade-lang.com/',
+        'description': 'Jade is a high performance template engine heavily influenced by Haml and implemented with JavaScript for node.',
+        'logo': 'jade.png'
+      }
+    ];
+    angular.forEach($scope.awesomeThings, function(awesomeThing) {
+      awesomeThing.rank = Math.random();
+    });
+  });

@@ -15,10 +15,11 @@ module.exports = function(options) {
 
 
     var injectScripts = gulp.src([
-      options.tmp + '/serve/{app,components}/**/*.js',
+      options.src + '/{app,components}/**/*.js',
       '!' + options.src + '/{app,components}/**/*.spec.js',
       '!' + options.src + '/{app,components}/**/*.mock.js'
-    ], { read: false });
+    ])
+    .pipe($.angularFilesort()).on('error', options.errorHandler('AngularFilesort'));
 
     var injectOptions = {
       ignorePath: [options.src, options.tmp + '/serve'],

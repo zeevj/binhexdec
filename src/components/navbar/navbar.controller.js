@@ -1,11 +1,6 @@
 'use strict';
 
-class NavbarCtrl {
-  constructor ($scope) {
+angular.module('binhexdec')
+  .controller('NavbarCtrl', function ($scope) {
     $scope.date = new Date();
-  }
-}
-
-NavbarCtrl.$inject = ['$scope'];
-
-export default NavbarCtrl;
+  });
